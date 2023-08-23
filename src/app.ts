@@ -1,14 +1,15 @@
-import express, { Request, Response } from 'express';
+import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-const app = express();
+const app: Application = express();
 
+// use cors
 app.use(cors());
 
 // parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req: Request, res: any) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
 
